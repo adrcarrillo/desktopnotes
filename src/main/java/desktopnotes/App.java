@@ -25,26 +25,27 @@ import com.google.gson.Gson;
 public class App {
     public static void main( String[] args ) {
 
+      //Gson
       BufferedReader reader = null;
-      reader = new BufferedReader(new InputStreamReader(App.class.getClassLoader().getResourceAsStream("user.json")));
-
-/*
       try {
 //        reader = new BufferedReader(new FileReader("user3.json"));
-      } catch (Exception e) {
-        e.printStackTrace();
-      } finally {
+      reader = new BufferedReader(new InputStreamReader(App.class.getClassLoader().getResourceAsStream("user.json")));
       }
-*/
+      catch (Exception e) {
+        e.printStackTrace();
+        return;
+      }
+      finally {
+        // Cleanup here is always executed
+      }
 
       Gson gson = new Gson();
       User user = gson.fromJson(reader, User.class);
-
       String id = user.getId();
       String pc = user.getPc();
       String mobile = user.getMobile();
 
-
+      //Look and Feel
       try {
               // Set cross-platform Java L&F (also called "Metal")
 //          UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
