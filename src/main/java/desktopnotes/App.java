@@ -14,8 +14,36 @@ import java.time.format.DateTimeFormatter;
 
 import com.formdev.flatlaf.*;
 
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.InputStreamReader;
+import com.google.gson.Gson;
+
+
 public class App {
     public static void main( String[] args ) {
+
+      BufferedReader reader = null;
+      reader = new BufferedReader(new InputStreamReader(App.class.getClassLoader().getResourceAsStream("user.json")));
+
+/*
+      try {
+//        reader = new BufferedReader(new FileReader("user3.json"));
+      } catch (Exception e) {
+        e.printStackTrace();
+      } finally {
+      }
+*/
+
+      Gson gson = new Gson();
+      User user = gson.fromJson(reader, User.class);
+
+      String id = user.getId();
+      String pc = user.getPc();
+      String mobile = user.getMobile();
+
 
       try {
               // Set cross-platform Java L&F (also called "Metal")
@@ -59,9 +87,9 @@ public class App {
         sarray[4]="Shanghai Time: "+localTimeStringAsia;
         sarray[5]="Week: "+now.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);
         sarray[6]="";
-        sarray[7]="User: ";
-        sarray[8]="PC: ";
-        sarray[9]="Mobile: ";
+        sarray[7]="ID: "+id;
+        sarray[8]="PC: "+pc;
+        sarray[9]="Mobile: "+mobile;
 
         String valueLabel = "";
         for (int j=0 ; j < sarray.length; j++){
@@ -78,7 +106,7 @@ public class App {
         frame.setIconImage(img.getImage());
 
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-        frame.setSize( 250, 200 );
+        frame.setSize( 500, 400 );
         frame.setLocationRelativeTo(null);
         frame.setVisible( true );
     }
