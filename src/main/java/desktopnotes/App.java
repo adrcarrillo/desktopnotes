@@ -16,20 +16,33 @@ import com.formdev.flatlaf.*;
 
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 import com.google.gson.Gson;
 
+import java.io.InputStream;
 
 public class App {
     public static void main( String[] args ) {
 
       //Gson
       BufferedReader reader = null;
+
       try {
-//        reader = new BufferedReader(new FileReader("user3.json"));
-      reader = new BufferedReader(new InputStreamReader(App.class.getClassLoader().getResourceAsStream("user.json")));
+// It works on the folder
+//      reader = new BufferedReader(new FileReader("user.json"));
+
+// It works with Gradle as resources!
+//      reader = new BufferedReader(new InputStreamReader(App.class.getClassLoader().getResourceAsStream("user.json")));
+
+// It works with Gradle as resources!
+//        InputStream inputStream = App.class.getClassLoader().getResourceAsStream("user.json");
+//        reader = new BufferedReader(new InputStreamReader(inputStream));
+
+       reader = new BufferedReader(new FileReader("C://Users/Public/user.json"));
+
+//      reader = new BufferedReader(new FileReader("user.json"));
+
       }
       catch (Exception e) {
         e.printStackTrace();
