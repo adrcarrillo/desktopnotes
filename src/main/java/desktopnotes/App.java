@@ -72,7 +72,7 @@ public class App {
 
 
 
-        JFrame frame = new JFrame( "Hello!" );
+        JFrame frame = new JFrame( "Desktop Notes" );
 //        JLabel label = new JLabel("Hello, Java!", JLabel.CENTER );
 
 
@@ -116,7 +116,7 @@ public class App {
         }
         label.setText(valueLabel+"</html");
 
-        frame.add(label,BorderLayout.NORTH);
+        frame.add(label,BorderLayout.CENTER);
 
 //        frame.setLayout(new FlowLayout());
 //        ImageIcon img = new ImageIcon(getClass().getResource("ico.png")); //Error
@@ -125,7 +125,7 @@ public class App {
         frame.setIconImage(img.getImage());
 
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-        frame.setSize( 500, 400 );
+        frame.setSize( 300, 200 );
         frame.setLocationRelativeTo(null);
         frame.setVisible( true );
     }
