@@ -89,12 +89,17 @@ public class App {
         DateTimeFormatter timeFormatedGreeting = DateTimeFormatter.ofPattern("H");
         String localTimeStringGreeting = timeFormatedGreeting.format(now);
 
+        int localhour = Integer.parseInt(localTimeStringGreeting);
+
+        //Test
+        localhour = 16;
+
         //Label
         JLabel label = new JLabel();
 
         //String Array
         String sarray[] = new String[10];
-        sarray[0]="Hi";
+        sarray[0]="Hi!, "+getGreeting(localhour); //With method to get Greeting
         sarray[1]="";
         sarray[2]="Date: "+now.toLocalDate();
         sarray[3]="Mexico Time: "+localTimeStringLocal;
@@ -123,5 +128,22 @@ public class App {
         frame.setSize( 500, 400 );
         frame.setLocationRelativeTo(null);
         frame.setVisible( true );
+    }
+
+    public static String getGreeting(int x) {
+      String greeting = new String();
+      if (6<=x&&x<=13) {
+        greeting = "\nGood morning!\n";
+      }
+      if (14<=x&&x<=18) {
+        greeting = "\nGood afternoon!\n";
+      }
+      if (19<=x&&x<=23) {
+        greeting = "\nGood night!\n";
+      }
+      if (0<=x&&x<6) {
+        greeting = "\nGo to sleep!\n";
+      }
+      return greeting;
     }
 }
