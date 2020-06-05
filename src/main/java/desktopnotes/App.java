@@ -92,7 +92,7 @@ public class App {
         int localhour = Integer.parseInt(localTimeStringGreeting);
 
         //Test
-        localhour = 16;
+//        localhour = 6;
 
         //Label
         JLabel label = new JLabel();
@@ -132,18 +132,15 @@ public class App {
 
     public static String getGreeting(int x) {
       String greeting = new String();
-      if (6<=x&&x<=13) {
-        greeting = "\nGood morning!\n";
-      }
-      if (14<=x&&x<=18) {
-        greeting = "\nGood afternoon!\n";
-      }
-      if (19<=x&&x<=23) {
-        greeting = "\nGood night!\n";
-      }
-      if (0<=x&&x<6) {
-        greeting = "\nGo to sleep!\n";
-      }
+        if (6<=x&&x<=11) {
+          greeting = "\nGood morning!\n";
+        } else if (12<=x&&x<=18) {
+          greeting = "\nGood afternoon!\n";
+        } else if (19<=x&&x<=22) {
+          greeting = "\nGood night!\n";
+        } else {
+            greeting = "\nGo to sleep!\n";
+        }
       return greeting;
     }
 }
