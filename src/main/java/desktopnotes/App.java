@@ -39,8 +39,9 @@ public class App {
 //        InputStream inputStream = App.class.getClassLoader().getResourceAsStream("user.json");
 //        reader = new BufferedReader(new InputStreamReader(inputStream));
 
-       reader = new BufferedReader(new FileReader("C://Users/Public/user.json"));
-
+       //reader = new BufferedReader(new FileReader("C://Users/Public/user.json"));
+       String userPath = System.getProperty("user.home");
+       reader = new BufferedReader(new FileReader(userPath+"/user.json"));
 //      reader = new BufferedReader(new FileReader("user.json"));
 
       }
